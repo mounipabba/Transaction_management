@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json()); 
 
-
-mongoose.connect('mongodb://localhost:27017/transactionDB');
+MONGO_URI='mongodb://localhost:27017/transactionDB'
+mongoose.connect(MONGO_URI);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', () => console.log('Connected to MongoDB'));
